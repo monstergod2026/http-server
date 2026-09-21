@@ -19,6 +19,7 @@ public:
                 break;
             }
             std::string header_line = inbuffer.substr(prev, pos - prev);
+            prev = pos + 2;
             size_t colon = header_line.find(": ");
             std::string key = header_line.substr(0, colon);
             std::string value = header_line.substr(colon + 2);
