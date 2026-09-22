@@ -59,6 +59,8 @@ public:
                             return request;
                         }
                         request.append(input_buffer, 0, pos + 4);
+                        input_buffer.erase(0, pos + 4);
+                        return request;
                     });
                 this->loop_->AddChannel(client_connection->channel()); //先这样
                 this->tcp_conns_[fd] = client_connection;

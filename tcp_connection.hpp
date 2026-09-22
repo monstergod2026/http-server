@@ -3,6 +3,7 @@
 using my_server::Channel;
 #include "event_loop.hpp"
 #include "http_request.hpp"
+#include "http_response.hpp"
 #include <cstring>
 #include <functional>
 #include <memory>
@@ -133,6 +134,7 @@ public:
     void SendMessage()
     {
 
+        output_buffer_ = HTTPResponse::Response(); //测试用的
         int len = send(fd_, output_buffer_.c_str(), output_buffer_.length(), MSG_NOSIGNAL);
         if (len < 0)
         {
